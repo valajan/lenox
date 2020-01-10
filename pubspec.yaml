@@ -1,0 +1,4 @@
+name: Lenox
+author: Anthony Scheidler <s.anth@outlook.fr>
+dependencies:
+  markdown: ^2.1.3
