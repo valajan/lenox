@@ -2,8 +2,8 @@ pubspec.lock
 /.packages
 /.dart_tool
 /build
-bin/router_simple.dart
-bin/router_switch.dart
+bin/*
+!bin/build.dart
 views/*
 !views/index.md
 !views/404.md
