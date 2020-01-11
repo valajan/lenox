@@ -64,8 +64,6 @@ class Router {
       // logger == true ? print('${request.method} ${request.uri.path}') : '';
       if (logger == true) {
         print('${request.method} ${request.uri.path}');
-      } else {
-        continue;
       }
       int i;
       sortedKeys = myConfig.keys.toList();
