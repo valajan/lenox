@@ -1,13 +1,19 @@
 import 'dart:io';
 import 'package:markdown/markdown.dart';
 
-void buildFiles(mdFile, htmlFile) {
-  mdFile.readAsString().then((contents) {
-    var convertor = markdownToHtml(contents,
-      inlineSyntaxes: [new InlineHtmlSyntax()]);
-    File('static/layout.html').readAsString().then((layout) {
+/// The md to html convertor string result
+String convertor;
+/// The final html result
+String layoutFile;
+
+/// Buildfiles function
+void buildFiles(File mdFile, File htmlFile) {
+  mdFile.readAsString().then((String contents) {
+    convertor = markdownToHtml(contents,
+      inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()]);
+    File('static/layout.html').readAsString().then((String layout) {
       print(layout);
-      var layoutFile = layout.replaceAll('{{ body }}', convertor);
+      layoutFile = layout.replaceAll('{{ body }}', convertor);
       htmlFile.writeAsString(layoutFile);
     });
   });

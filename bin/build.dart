@@ -2,23 +2,27 @@ import 'dart:io';
 import 'package:markdown/markdown.dart';
 
 void main() {
+  String safeName;
+  String convertor;
+  String layoutFile;
+  String cssSafe;
   print('Build in progress !');
   Directory('build').create();
   Directory('build/css').create();
-  Directory('views').list().listen((contents) {
-    var safeName = contents.uri.path.replaceAll('views/', '').replaceAll('.md', '');
-    File('${contents.path}').readAsString().then((contents) {
-      var convertor = markdownToHtml(contents,
-        inlineSyntaxes: [new InlineHtmlSyntax()]);
-      File('static/layout.html').readAsString().then((layout) {
-        var layoutFile = layout.toString().replaceAll('{{ body }}', convertor);
+  Directory('views').list().listen((FileSystemEntity contents) {
+    safeName = contents.uri.path.replaceAll('views/', '').replaceAll('.md', '');
+    File('${contents.path}').readAsString().then((String contents) {
+      convertor = markdownToHtml(contents,
+        inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()]);
+      File('static/layout.html').readAsString().then((String layout) {
+        layoutFile = layout.toString().replaceAll('{{ body }}', convertor);
         File('build/$safeName.html').writeAsString(layoutFile);
       });
     });
   });
-  Directory('static/css/').list().listen((contents) {
-    var cssSafe = contents.path.replaceAll('static/css/', '');
-    File(contents.path).readAsString().then((cssContents) {
+  Directory('static/css/').list().listen((FileSystemEntity contents) {
+    cssSafe = contents.path.replaceAll('static/css/', '');
+    File(contents.path).readAsString().then((String cssContents) {
       File('build/css/$cssSafe').writeAsString(cssContents);
     });
   });

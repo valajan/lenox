@@ -9,3 +9,4 @@ views/*
 !views/404.md
 .DS_Store
 doc/api
+analysis_options.yaml
