@@ -18,7 +18,6 @@ void main() {
   });
   Directory('static/css/').list().listen((contents) {
     var cssSafe = contents.path.replaceAll('static/css/', '');
-    print(cssSafe);
     File(contents.path).readAsString().then((cssContents) {
       File('build/css/$cssSafe').writeAsString(cssContents);
     });
