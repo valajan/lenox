@@ -31,4 +31,4 @@ name = 'Scott'
 print 'Hi my name is ' + name
 ```
 
-<http://stackabuse.com>
+<https://github.com/valajan/lenox>
