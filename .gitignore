@@ -7,3 +7,4 @@ bin/router_switch.dart
 views/*
 !views/index.md
 !views/404.md
+.DS_Store
