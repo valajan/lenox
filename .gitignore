@@ -11,4 +11,3 @@ views/*
 .DS_Store
 doc/api
 analysis_options.yaml
-static/assets/images/*
