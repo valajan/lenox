@@ -1,30 +1,23 @@
-import 'dart:io';
-import 'package:markdown/markdown.dart';
+import 'src/compile_css.dart';
+import 'src/create_directory.dart';
+import 'src/compile_dart_to_js.dart';
+import 'src/compile_md_to_html.dart';
 
-void main() {
-  String safeName;
-  String convertor;
-  String layoutFile;
-  String cssSafe;
-  print('Build in progress !');
-  Directory('build').create();
-  Directory('build/css').create();
-  Directory('views').list().listen((FileSystemEntity contents) {
-    safeName = contents.uri.path.replaceAll('views/', '').replaceAll('.md', '');
-    File('${contents.path}').readAsString().then((String contents) {
-      convertor = markdownToHtml(contents,
-        inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()]);
-      File('static/layout.html').readAsString().then((String layout) {
-        layoutFile = layout.toString().replaceAll('{{ body }}', convertor);
-        File('build/$safeName.html').writeAsString(layoutFile);
-      });
-    });
-  });
-  Directory('static/css/').list().listen((FileSystemEntity contents) {
-    cssSafe = contents.path.replaceAll('static/css/', '');
-    File(contents.path).readAsString().then((String cssContents) {
-      File('build/css/$cssSafe').writeAsString(cssContents);
-    });
-  });
-  print('Build done ! Check the build folder');
+void main(List<String> arguments) async {
+  bool verbose = arguments.contains('-js');
+
+  print('Build in progres !');
+
+  final createDirectory = CreateDirectory();
+  createDirectory.main();
+
+  final compileDartToJs = CompileDartToJs();
+  compileDartToJs.main(verbose);
+
+  final compileMdToHtml = CompileMdToHtml();
+  compileMdToHtml.main();
+
+  final compileCss = CompileCss();
+  compileCss.main();
+
 }

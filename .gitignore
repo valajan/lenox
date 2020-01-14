@@ -4,9 +4,11 @@ pubspec.lock
 /build
 bin/*
 !bin/build.dart
+!bin/src/
 views/*
 !views/index.md
 !views/404.md
 .DS_Store
 doc/api
 analysis_options.yaml
+static/assets/images/*
