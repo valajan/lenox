@@ -10,7 +10,7 @@ void main() {
   // D'écouter les requêtes et de retourner un résultat en
   // Fonction du fichier de configuration qui est indispensable
   // Paramètre logger optionnel
-    .router(logger: true);
+    .router(logger: false);
   // Configuration du router avec le fichier de configuration
   // renseigné plus haut
     // ..config(routeConfig);

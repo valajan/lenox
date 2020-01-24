@@ -103,7 +103,8 @@ class Router {
       if (File('$myFile').existsSync()) {
         await File('$myFile').readAsString().then((contents) {
           convertor = markdownToHtml(contents,
-              inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()]);
+              inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
+              extensionSet: ExtensionSet.gitHubWeb);
         });
         builder.buildPage(myFile, request, convertor);
       } else if (File(myStaticFile).existsSync()) {
@@ -111,7 +112,8 @@ class Router {
       } else {
         await File('views/404.md').readAsString().then((contents) {
           convertor = markdownToHtml(contents,
-              inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()]);
+              inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
+              extensionSet: ExtensionSet.gitHubWeb);
         });
         builder.buildPage('views/404.md', request, convertor);
       }

@@ -4,7 +4,7 @@ import 'src/compile_dart_to_js.dart';
 import 'src/compile_md_to_html.dart';
 
 void main(List<String> arguments) async {
-  bool verbose = arguments.contains('-js');
+  var verbose = arguments.contains('-js');
 
   print('Build in progres !');
 

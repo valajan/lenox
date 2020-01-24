@@ -4,20 +4,14 @@ An H1 Titre
 An H2 Header
 ------------
 
+[Page 2](/lenox)
+
 > Of all the things I've lost 
 > I miss my mind the most. - Mark Twain
-
+-----------------
 * Item 1
 * Item 2
 * Item 3
-
-+ Item 1
-+ Item 2
-+ Item 3
-
-- Item 1
-- Item 2
-- Item 3
 
 * Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fringilla velit sit amet lectus tincidunt, quis suscipit tortor maximus. Vestibulum facilisis sit amet tortor sed vestibulum.
 
