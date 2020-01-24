@@ -72,7 +72,9 @@ class Router {
   var builder = BuildRequest();
 
   /// Entry function
-  Future<void> router({bool logger}) async {
+  Future<void> router({bool logger, String theme}) async {
+    // If no theme is provided the default theme is blank
+    theme ??= 'blank';
     var staticFiles = VirtualDirectory('static');
     staticFiles.jailRoot = false;
     staticFiles.allowDirectoryListing = true;
@@ -95,9 +97,9 @@ class Router {
         myRoute = request.uri.path == '/' ? '/index.html' : request.uri.path;
       }
 
-      myStaticFile = 'static$myRoute';
+      myStaticFile = 'themes/$theme$myRoute';
       var safeStaticFile =
-          myStaticFile.replaceAll('.html', '').replaceAll('static/', '');
+          myStaticFile.replaceAll('.html', '').replaceAll('themes/$theme/', '');
       myFile = '${myView.uri}/$safeStaticFile.md';
 
       if (File('$myFile').existsSync()) {
@@ -106,7 +108,7 @@ class Router {
               inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
               extensionSet: ExtensionSet.gitHubWeb);
         });
-        builder.buildPage(myFile, request, convertor);
+        builder.buildPage(myFile, request, convertor, theme);
       } else if (File(myStaticFile).existsSync()) {
         builder.buildStaticFile(myStaticFile, request, staticFiles);
       } else {
@@ -115,7 +117,7 @@ class Router {
               inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
               extensionSet: ExtensionSet.gitHubWeb);
         });
-        builder.buildPage('views/404.md', request, convertor);
+        builder.buildPage('views/404.md', request, convertor, theme);
       }
       // if (myConfig.containsKey(request.uri.path)) {
       //   for (int i = 0; i < sortedKeys.length; i++) {

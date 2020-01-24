@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:markdown/markdown.dart';
 
 class CompileMdToHtml {
-  void main() {
+  void main(theme) {
     Directory('views').list().listen((FileSystemEntity contents) {
       var safeName =
           contents.uri.path.replaceAll('views/', '').replaceAll('.md', '');
@@ -10,7 +10,7 @@ class CompileMdToHtml {
         var convertor = markdownToHtml(contents,
             inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
             extensionSet: ExtensionSet.gitHubWeb);
-        File('static/layout.html').readAsString().then((String layout) {
+        File('themes/$theme/layout.html').readAsString().then((String layout) {
           var layoutFile = layout.toString().replaceAll('{{ body }}', convertor);
           File('build/$safeName.html').writeAsString(layoutFile);
         });

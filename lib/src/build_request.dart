@@ -6,11 +6,11 @@ class BuildRequest {
 
   String layoutFinal;
 
-  void buildPage(String fileName, HttpRequest request, String layout) async {
+  void buildPage(String fileName, HttpRequest request, String layout, String theme) async {
     var response = request.response;
     var mimeType = 'text/html';
     response.headers.set('Content-Type', mimeType);
-    await File('static/layout.html').readAsString().then((contents) {
+    await File('themes/$theme/layout.html').readAsString().then((contents) {
       layoutFinal = contents.toString().replaceAll('{{ body }}', layout);
       response.write(layoutFinal);
       response.close();

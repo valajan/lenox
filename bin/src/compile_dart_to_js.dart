@@ -2,11 +2,11 @@ import 'dart:io';
 import 'package:process_run/process_run.dart';
 
 class CompileDartToJs {
-  void main(verbose) {
+  void main(verbose, theme) {
     if (verbose) {
-      Directory('static/js').list().listen((FileSystemEntity contents) {
+      Directory('themes/$theme/js').list().listen((FileSystemEntity contents) {
         var safeName =
-            contents.uri.path.replaceAll('static/js/', '').replaceAll('.dart', '');
+            contents.uri.path.replaceAll('themes/$theme/js/', '').replaceAll('.dart', '');
         if (safeName.contains('.js') != true) {
           Directory('build/js/$safeName').create();
           print('Compile dart file to js');
