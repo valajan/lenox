@@ -9,6 +9,11 @@ git clone https://github.com/valajan/lenox.git
 cd lenox
 ```
 
+**Get all dependencies**
+```
+pub get
+```
+
 **Start** Lenox with
 ```
 dart main.dart
