@@ -22,13 +22,13 @@ The *main.dart* file is the entry file of Lenox
 
 **Generate static files**
 ```
-pub run build.dart --js (optional) --theme=bulma (choose a theme)
+pub run build.dart
 ```
 
 **Launch webdev server**
 
 ```
-webdev serve build:3000 (choose your port)
+webdev serve build
 ```
 [Webdev](https://pub.dev/packages/webdev) package can only works if the build.yaml file is present.  
 You can configure it with your own desire !  
