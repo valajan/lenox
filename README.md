@@ -7,5 +7,5 @@ dart main.dart
 ```
 **Build** the static website with
 ```dart
-pub run build.dart --js (optional) --theme=bulma (default is blank)
+pub run build.dart --js (optional) --theme=bulma (choose a theme)
 ```
