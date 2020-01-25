@@ -28,3 +28,10 @@ webdev serve build:3000 (choose your port)
 [Webdev](https://pub.dev/packages/webdev) package can only works if the build.yaml file is present.  
 You can configure it with your own desire !  
 Optionnaly you can create a web folder and delete the unnecessary build.yaml file.  
+
+## Theming
+
+**Choose** or **create** your own theme !  
+Two themes are availables at the moment (blank & bulma).  
+You can create your own theme, just add a folder in themes directory.  
+Add a layout.html base file and it's ready !  
