@@ -5,7 +5,7 @@ A simple static site generator written in [Dart](https://dart.dev/)
 
 **Clone the repository**
 ```
-git clone https://github.com/valajan/lenox.git && cd lenox
+git clone https://github.com/valajan/lenox.git
 ```
 
 **Get all dependencies**
