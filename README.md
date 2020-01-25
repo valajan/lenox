@@ -18,11 +18,11 @@ dart main.dart
 pub run build.dart --js (optional) --theme=bulma (choose a theme)
 ```
 
-**Launch** webdev server with  
-Webdev package can only works if the build.yaml file is present.  
-You can configure it with your own desire !  
-Optionnaly you can create a web folder and delete the unnecessary build.yaml file.
+**Launch** webdev server with
 
 ```
 webdev serve build:3000 (choose your port)
 ```
+Webdev package can only works if the build.yaml file is present.  
+You can configure it with your own desire !  
+Optionnaly you can create a web folder and delete the unnecessary build.yaml file.  
