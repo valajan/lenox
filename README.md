@@ -35,3 +35,9 @@ Optionnaly you can create a web folder and delete the unnecessary build.yaml fil
 Two themes are availables at the moment (blank & bulma).  
 You can create your own theme, just add a folder in themes directory.  
 Add a layout.html base file and it's ready !  
+
+To use your theme go to the config.yaml file in the config directory and replace the theme name by the new one
+```
+theme: mySuperTheme
+```
+The theme name must be match with the folder name  
