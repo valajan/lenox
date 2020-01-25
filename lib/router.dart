@@ -108,7 +108,7 @@ class Router {
               inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
               extensionSet: ExtensionSet.gitHubWeb);
         });
-        builder.buildPage(myFile, request, convertor, theme);
+        builder.buildPage(myFile, request, convertor);
       } else if (File(myStaticFile).existsSync()) {
         builder.buildStaticFile(myStaticFile, request, staticFiles);
       } else {
@@ -117,7 +117,7 @@ class Router {
               inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
               extensionSet: ExtensionSet.gitHubWeb);
         });
-        builder.buildPage('views/404.md', request, convertor, theme);
+        builder.buildPage('views/404.md', request, convertor);
       }
       // if (myConfig.containsKey(request.uri.path)) {
       //   for (int i = 0; i < sortedKeys.length; i++) {

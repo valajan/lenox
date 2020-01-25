@@ -11,6 +11,7 @@ class BuildRequest {
   String keywords;
   String language;
   String subtitle;
+  String theme;
   var config = LenoxContent();
   
   void configContent() async {
@@ -22,10 +23,11 @@ class BuildRequest {
     keywords = config.getKeywords();
     language = config.getLanguage();
     subtitle = config.getSubtitle();
+    theme = config.getTheme();
   }
 
   void buildPage(
-      String fileName, HttpRequest request, String layout, String theme) async {
+      String fileName, HttpRequest request, String layout) async {
     await configContent();
     var response = request.response;
     var mimeType = 'text/html';
