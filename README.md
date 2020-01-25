@@ -13,6 +13,8 @@ cd lenox
 ```
 dart main.dart
 ```
+The *main.dart* file is the entry file of Lenox  
+
 **Build** the static website with
 ```
 pub run build.dart --js (optional) --theme=bulma (choose a theme)
