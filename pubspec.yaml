@@ -12,6 +12,8 @@ dependencies:
   http_server: ^0.9.8+3
   mime_type: ^0.2.4
   args: ^1.5.2
+  lenox_content:
+    git: git://github.com/valajan/lenox_content.git
 
 dev_dependencies:
   build_runner: ^1.6.0
