@@ -17,3 +17,8 @@ dart main.dart
 ```
 pub run build.dart --js (optional) --theme=bulma (choose a theme)
 ```
+
+**Launch** webdev server with
+```
+webdev serve build:3000 (choose your port)
+```
