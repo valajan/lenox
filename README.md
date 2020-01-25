@@ -39,5 +39,6 @@ Add a layout.html base file and it's ready !
 To use your theme go to the config.yaml file in the config directory and replace the theme name by the new one
 ```
 theme: mySuperTheme
+# theme name must be match with the folder name
 ```
-The theme name must be match with the folder name  
+Now you can enjoy your new theme !
