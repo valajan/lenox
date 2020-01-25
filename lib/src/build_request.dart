@@ -1,7 +1,7 @@
 import 'dart:io';
+import 'content.dart';
 import 'package:http_server/http_server.dart';
 import 'package:mime_type/mime_type.dart';
-import 'package:lenox_content/lenox_content.dart';
 
 class BuildRequest {
   String layoutFinal;
