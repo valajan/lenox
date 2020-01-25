@@ -1,7 +1,7 @@
-name: Lenox
+name: lenox
 description: A simple static site generator writter in Dart
 homepage: https://github.com/valajan/lenox
-author: Anthony Scheidler <s.anth@outlook.fr>
+version: 0.0.1
 
 environment:
   sdk: '>=2.1.0 <3.0.0'
