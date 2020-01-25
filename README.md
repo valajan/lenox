@@ -3,7 +3,7 @@ A simple static site generator written in [Dart](https://dart.dev/)
 
 ## How to start
 
-**Clone** the repository
+**Clone the repository**
 ```
 git clone https://github.com/valajan/lenox.git
 cd lenox
@@ -14,18 +14,18 @@ cd lenox
 pub get
 ```
 
-**Start** Lenox with
+**Start Lenox**
 ```
 dart main.dart
 ```
 The *main.dart* file is the entry file of Lenox  
 
-**Build** the static website with
+**Generate static files**
 ```
 pub run build.dart --js (optional) --theme=bulma (choose a theme)
 ```
 
-**Launch** webdev server with
+**Launch webdev server**
 
 ```
 webdev serve build:3000 (choose your port)
@@ -36,7 +36,7 @@ Optionnaly you can create a web folder and delete the unnecessary build.yaml fil
 
 ## Theming
 
-**Choose** or **create** your own theme !  
+**Choose or create your own theme !**
 Two themes are availables at the moment (blank & bulma).  
 You can create your own theme, just add a folder in themes directory.  
 Add a layout.html base file and it's ready !  
