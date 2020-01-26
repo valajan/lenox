@@ -2,18 +2,35 @@ import 'dart:io';
 import 'content.dart';
 import 'package:http_server/http_server.dart';
 import 'package:mime_type/mime_type.dart';
+import 'package:mustache/mustache.dart';
+import 'package:pedantic/pedantic.dart';
 
 class BuildRequest {
+
   String layoutFinal;
+
   String title;
+
   String author;
+
   String description;
+
   String keywords;
+
   String language;
+
   String subtitle;
+
   String theme;
+
+  String source;
+
+  Template template;
+
+  String output;
+
   var config = LenoxContent();
-  
+
   void configContent() async {
     config.setConfig('config/config.yaml');
     await config.getter();
@@ -26,23 +43,25 @@ class BuildRequest {
     theme = config.getTheme();
   }
 
-  void buildPage(
-      String fileName, HttpRequest request, String layout) async {
+  void buildPage(String fileName, HttpRequest request, String layout) async {
     await configContent();
+    await File('themes/$theme/layout.html').readAsString().then((contents) {
+      source = contents;
+    });
+    template = Template(source, name: 'themes/$theme/layout.html');
+    output = template.renderString({
+      'author': author,
+      'body': layout,
+      'description': description,
+      'keywords': keywords,
+      'language': language,
+      'title': title
+    });
     var response = request.response;
     var mimeType = 'text/html';
     response.headers.set('Content-Type', mimeType);
-    await File('themes/$theme/layout.html').readAsString().then((contents) {
-      layoutFinal = contents.toString()
-        .replaceAll('{{ body }}', layout)
-        .replaceAll('{{ title }}', title)
-        .replaceAll('{{ description }}', description)
-        .replaceAll('{{ keywords }}', keywords)
-        .replaceAll('{{ author }}', author)
-        .replaceAll('{{ language }}', language);
-      response.write(layoutFinal);
-      response.close();
-    });
+    response.write(output);
+    unawaited(response.close());
   }
 
   void buildStaticFile(
