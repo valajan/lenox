@@ -20,5 +20,11 @@ class CreateDirectory {
         Directory('build/js').create();
       }
     });
+    Directory('build/assets').exists().then((bool result) {
+      if (result == false) {
+        print('Create the build/assets directory');
+        Directory('build/assets').create();
+      }
+    });
   }
 }

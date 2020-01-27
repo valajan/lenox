@@ -1,3 +1,4 @@
+import 'src/compile_assets.dart';
 import 'src/compile_css.dart';
 import 'src/create_directory.dart';
 import 'src/compile_dart_to_js.dart';
@@ -21,6 +22,9 @@ void main(List<String> arguments) async {
 
   final compileMdToHtml = CompileMdToHtml();
   compileMdToHtml.main();
+
+  final compileAssets = CompileAssets();
+  compileAssets.main();
 
   final compileCss = CompileCss();
   compileCss.main();
