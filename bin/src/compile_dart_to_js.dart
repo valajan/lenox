@@ -1,9 +1,15 @@
 import 'dart:io';
+import 'package:lenox/src/autoloader.dart';
 import 'package:process_run/process_run.dart';
 
 class CompileDartToJs {
-  void main(verbose, theme) {
+  String theme;
+  LenoxContent config = LenoxContent();
+  void main(verbose) async {
     if (verbose) {
+      config.setConfig('config/config.yaml');
+      await config.getter();
+      theme = config.getTheme();
       Directory('themes/$theme/js').list().listen((FileSystemEntity contents) {
         var safeName =
             contents.uri.path.replaceAll('themes/$theme/js/', '').replaceAll('.dart', '');

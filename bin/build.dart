@@ -6,12 +6,10 @@ import 'package:args/args.dart';
 
 void main(List<String> arguments) async {
   var parser = ArgParser();
-  parser.addOption('theme', defaultsTo: 'blank');
-  parser.addFlag('js', defaultsTo: false);
+  parser.addFlag('js', defaultsTo: true);
   var results = parser.parse(arguments);
 
   var verboseJs = results['js'];
-  var theme = results['theme'];
 
   print('Build in progres !');
 
@@ -19,11 +17,11 @@ void main(List<String> arguments) async {
   createDirectory.main();
 
   final compileDartToJs = CompileDartToJs();
-  compileDartToJs.main(verboseJs, theme);
+  compileDartToJs.main(verboseJs);
 
   final compileMdToHtml = CompileMdToHtml();
-  compileMdToHtml.main(theme);
+  compileMdToHtml.main();
 
   final compileCss = CompileCss();
-  compileCss.main(theme);
+  compileCss.main();
 }
