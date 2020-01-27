@@ -43,5 +43,5 @@ theme: mySuperTheme
 # theme name must be match with the folder name
 ```
 
-# License
+## License
 Licensed under the [MIT License](https://github.com/valajan/lenox/blob/master/LICENSE).
