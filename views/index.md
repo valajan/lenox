@@ -15,7 +15,7 @@
 - Nulla facilisi. Mauris eleifend felis a purus pretium egestas
 
 <div style="margin-top: 15px;">
-    <a href="/lenox.html"><button>Read more...</button></a>
+    <a href="/lenox.html">#button Read more... button#</a>
 </div>
 
 ---
@@ -29,11 +29,11 @@ print 'Hi my name is ' + name
 
 <div style="margin-top: 25px;">
     <a href="https://github.com/valajan/lenox/">
-        <button class="button">
+        #button
             <span class="icon">
                 <i class="fab fa-github"></i>
             </span>
             <span>GitHub</span>
-        </button>
+        button#
     </a>
 </div>

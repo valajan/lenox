@@ -116,7 +116,7 @@ class Router {
         await File('$myFile').readAsString().then((contents) {
           convertor = markdownToHtml(contents,
               inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
-              extensionSet: ExtensionSet.gitHubWeb);
+              extensionSet: ExtensionSet.gitHubWeb).replaceAll('#button', '<button>').replaceAll('button#', '</button>');
         });
         builder.buildPage(myFile, request, convertor);
       } else if (File(myStaticFile).existsSync()) {
