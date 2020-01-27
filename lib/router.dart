@@ -68,15 +68,20 @@ class Router {
   /// Final html result
   String layoutFinal;
 
+  /// Static file route
   String myStaticFile;
 
+  /// Website theme
   String theme;
   
+  /// Static files directory
   VirtualDirectory staticFiles;
 
-  var builder = BuildRequest();
+  /// Request builder
+  BuildRequest builder = BuildRequest();
 
-  var config = ThemeConfig();
+  /// Theme configuration
+  ThemeConfig config = ThemeConfig();
 
   /// Entry function
   Future<void> router({bool logger}) async {
