@@ -2,13 +2,21 @@ import 'dart:io';
 import 'package:yaml_config/yaml_config.dart';
 
 class LenoxContent {
+  
   String title;
+
   String subtitle;
+  
   String description;
+  
   String keywords;
+  
   String author;
+  
   String language;
+  
   String theme;
+  
   String config;
 
   String setConfig(myConfig) {
