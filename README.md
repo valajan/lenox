@@ -3,13 +3,10 @@ A simple static site generator written in [Dart](https://dart.dev/)
 
 ## How to start
 
-**Clone the repository**
+**Install dependencies**
 ```
 git clone https://github.com/valajan/lenox.git
-```
-
-**Get all dependencies**
-```
+cd lenox
 pub get
 ```
 
