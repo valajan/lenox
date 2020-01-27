@@ -15,7 +15,7 @@
 - Nulla facilisi. Mauris eleifend felis a purus pretium egestas
 
 <div style="margin-top: 15px;">
-    <a href="/lenox.html"><button class="button is-link is-light">Read more...</button></a>
+    <a href="/lenox.html"><button>Read more...</button></a>
 </div>
 
 ---
