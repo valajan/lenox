@@ -15,7 +15,7 @@ void main() {
   setConfig('button', 'button');
 
   // button in link
-  setConfig('a button', 'button is-link');
+  setConfig('a button', 'button is-link is-light');
 
   // section
   setConfig('section', 'section');
