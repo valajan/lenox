@@ -119,47 +119,6 @@ class Router {
         });
         builder.buildPage('views/404.md', request, convertor);
       }
-      // if (myConfig.containsKey(request.uri.path)) {
-      //   for (int i = 0; i < sortedKeys.length; i++) {
-      //     if (sortedKeys[i] == request.uri.path) {
-      //       myFile = File('${myView.uri}/${sortedValues[i]}.md');
-      //       buildRequest(myStaticFile, request);
-      //       continue;
-      //     } else {
-      //       continue;
-      //     }
-      //   }
-      // } else if (myFile.existsSync()) {
-      //   buildHtmlFile(myFile, request);
-      // } else {
-      //   buildHtmlFile(errorPage, request);
-      // }
     });
   }
-
-  /// Function for converting .md to .html file
-  // void buildHtmlFile(File file, HttpRequest request) {
-  //   file.readAsString().then((String contents) async {
-  //     request.response.headers.contentType = ContentType.html;
-  //     convertor = markdownToHtml(contents,
-  //         inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()]);
-  //     layout.readAsString().then((String layoutContent) {
-  //       layoutFinal =
-  //           layoutContent.toString().replaceAll('{{ body }}', convertor);
-  //       request.response.write(layoutFinal);
-  //       request.response.close();
-  //     });
-  //   });
-  // }
-
-  /// Prefer use bin/build.dart ou lib/build.dart
-  /// Actually have work to do with this function
-  // void build() {
-  //   Directory('views').list().listen((contents) {
-  //     var safe1 = contents.uri.path.replaceAll('views/', '');
-  //     var safe2 = safe1.replaceAll('.md', '');
-  //     buildFiles(File('${contents.path}'), File('${myView.uri}/$safe2.html'));
-  //   });
-  // }
-
 }
