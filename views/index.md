@@ -1,9 +1,7 @@
-<h1 class="title is-1">
-    Website launch
-    <span class="icon has-text-danger" style="justify-content: unset;">
-        <i class="fas fa-rocket"></i>
-    </span>
-</h1>
+# Website launch
+<span class="icon has-text-danger" style="justify-content: unset;">
+    <i class="fas fa-rocket"></i>
+</span>
 
 <h2 class="subtitle is-2">
     it's now ready to use, enjoy!
