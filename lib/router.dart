@@ -16,9 +16,9 @@ import 'package:markdown/markdown.dart';
 import 'src/autoloader.dart';
 // import 'src/build.dart';
 
-/// The main class of the app
+/// Main class of the app
 class Router {
-  /// The router constructor
+  /// Router constructor
   Router({this.myView, this.errorPage, this.myPort}) {
     print('Thanks for using lenox static site gen!');
     myView == null ? myView = Directory('views') : myView = myView;
@@ -29,43 +29,43 @@ class Router {
     myConfig == null ? myConfig = routeConfig : myConfig = myConfig;
   }
 
-  /// The view directory
+  /// View directory
   Directory myView;
 
-  /// The 404 error page
+  /// 404 error page
   File errorPage;
 
-  /// The logger choice for the router
+  /// Logger choice for the router
   bool logger;
 
   /// The route configuration
   Map<String, String> myConfig;
 
-  /// The layout or template file
+  /// Layout or template file
   File layout = File('static/layout.html');
 
-  /// The file to show for a specific route
+  /// File to show for a specific route
   String myFile;
 
-  /// The uri route
+  /// Uri route
   String myRoute;
 
-  /// The port for the server
+  /// Port for the server
   int myPort;
 
-  /// The server variable
+  /// Server variable
   HttpServer server;
 
-  /// The config route keys
+  /// Config route keys
   List<String> sortedKeys;
 
-  /// The config route values
+  /// Config route values
   List<String> sortedValues;
 
-  /// The markdown to html result
+  /// Markdown to html result
   String convertor;
 
-  /// The final html result
+  /// Final html result
   String layoutFinal;
   String myStaticFile;
 
