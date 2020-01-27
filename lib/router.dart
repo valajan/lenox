@@ -68,14 +68,20 @@ class Router {
   /// Final html result
   String layoutFinal;
   String myStaticFile;
+  String theme;
 
   var builder = BuildRequest();
 
+  var config = LenoxContent();
+
   /// Entry function
-  Future<void> router({bool logger, String theme}) async {
+  Future<void> router({bool logger}) async {
+    config.setConfig('config/config.yaml');
+    await config.getter();
+    theme = config.getTheme();
     // If no theme is provided the default theme is blank
     theme ??= 'blank';
-    var staticFiles = VirtualDirectory('static');
+    var staticFiles = VirtualDirectory('themes');
     staticFiles.jailRoot = false;
     staticFiles.allowDirectoryListing = true;
     staticFiles.followLinks = true;
