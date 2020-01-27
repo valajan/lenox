@@ -42,3 +42,6 @@ To use your theme go to the config.yaml file in the config directory and replace
 theme: mySuperTheme
 # theme name must be match with the folder name
 ```
+
+# License
+Licensed under the [MIT License](https://github.com/valajan/lenox/blob/master/LICENSE).
