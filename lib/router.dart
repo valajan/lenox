@@ -67,8 +67,12 @@ class Router {
 
   /// Final html result
   String layoutFinal;
+
   String myStaticFile;
+
   String theme;
+  
+  VirtualDirectory staticFiles;
 
   var builder = BuildRequest();
 
@@ -77,10 +81,7 @@ class Router {
   /// Entry function
   Future<void> router({bool logger}) async {
     theme = config.themeConfig(configFile: 'config/config.yaml');
-    var staticFiles = VirtualDirectory('themes');
-    staticFiles.jailRoot = false;
-    staticFiles.allowDirectoryListing = true;
-    staticFiles.followLinks = true;
+    staticFiles = StaticDirectory().getStaticDirectory();
     server = await HttpServer.bind(InternetAddress.loopbackIPv6, myPort);
     print('Open http://localhost:${server.port} to see your site');
     print('Press CTRL+C to stop');
