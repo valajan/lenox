@@ -1,15 +1,10 @@
 # Website launch
-<span class="icon has-text-danger" style="justify-content: unset;">
-    <i class="fas fa-rocket"></i>
-</span>
 
-<h2 class="subtitle is-2">
-    it's now ready to use, enjoy!
-</h2>
+## it's now ready to use, enjoy!
 
 ---
 
-<h2 class="subtitle is-3">Short description</h2>
+### Short description
 
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fringilla velit sit amet lectus tincidunt, quis suscipit tortor maximus. Vestibulum facilisis sit amet tortor sed vestibulum.
 
@@ -25,7 +20,7 @@
 
 ---
 
-<h2 class="subtitle is-3">How to code in python</h2>
+### How to code in python
 
 ```python
 name = 'Scott'
