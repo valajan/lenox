@@ -12,3 +12,7 @@ views/*
 doc/api
 analysis_options.yaml
 doc/
+themes/bulma/js/*
+!themes/bulma/js/main.dart
+themes/blank/js/*
+themes/blank/js/main.dart
