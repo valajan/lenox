@@ -1,13 +1,14 @@
 // Utilisation basique du routeur
 // Import du router
 import 'lib/src/autoloader.dart';
-import 'package:pedantic/pedantic.dart';
 // Déclaration de la fonction main non async
-void main() async {
+
+Future<void> main() async {
   await Prebuild().main();
   // Appel de l'objet Router avec une configuration minimale
   // On peut utiliser des options myView, errorPage et myPort
-  unawaited(Router()
+  Future.delayed(Duration(seconds: 1), () => 
+  Router()
   // Démarrage du router qui s'occupe de créer un serveur web
   // D'écouter les requêtes et de retourner un résultat en
   // Fonction du fichier de configuration qui est indispensable
