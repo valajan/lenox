@@ -81,11 +81,13 @@ class Router {
   BuildRequest builder = BuildRequest();
 
   /// Theme configuration
-  ThemeConfig config = ThemeConfig();
+  LenoxContent config = LenoxContent();
 
   /// Entry function
   Future<void> router({bool logger}) async {
-    theme = config.themeConfig(configFile: 'config/config.yaml');
+    config.setConfig('config/config.yaml');
+    await config.getter();
+    theme = config.getTheme();
     staticFiles = StaticDirectory().getStaticDirectory();
     server = await HttpServer.bind(InternetAddress.loopbackIPv6, myPort);
     print('Open http://localhost:${server.port} to see your site');
