@@ -41,7 +41,7 @@ class CompileMdToHtml {
       File('${contents.path}').readAsString().then((String contents) {
         var convertor = markdownToHtml(contents,
             inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
-            extensionSet: ExtensionSet.gitHubWeb);
+            extensionSet: ExtensionSet.gitHubWeb).replaceAll('#button', '<button>').replaceAll('button#', '</button>');
         File('themes/$theme/layout.html').readAsString().then((String layout) {
           // var layoutFile =
           //     layout.toString().replaceAll('{{ body }}', convertor);
