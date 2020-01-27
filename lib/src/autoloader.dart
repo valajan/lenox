@@ -1,5 +1,4 @@
-// Export du coeur de librairie pour l'utiliser
-// dans le fichier de démarrage main.dart
+// Export the core library
 export '../router.dart';
 export 'config.dart';
 export 'build_request.dart';
