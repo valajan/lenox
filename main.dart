@@ -2,7 +2,8 @@
 // Import du router
 import 'lib/src/autoloader.dart';
 // Déclaration de la fonction main non async
-void main() {
+void main() async {
+  await Prebuild().main();
   // Appel de l'objet Router avec une configuration minimale
   // On peut utiliser des options myView, errorPage et myPort
   Router()
