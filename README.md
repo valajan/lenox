@@ -42,4 +42,3 @@ To use your theme go to the config.yaml file in the config directory and replace
 theme: mySuperTheme
 # theme name must be match with the folder name
 ```
-Now you can enjoy your new theme !
