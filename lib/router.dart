@@ -72,15 +72,11 @@ class Router {
 
   var builder = BuildRequest();
 
-  var config = LenoxContent();
+  var config = ThemeConfig();
 
   /// Entry function
   Future<void> router({bool logger}) async {
-    config.setConfig('config/config.yaml');
-    await config.getter();
-    theme = config.getTheme();
-    // If no theme is provided the default theme is blank
-    theme ??= 'blank';
+    theme = config.themeConfig(configFile: 'config/config.yaml');
     var staticFiles = VirtualDirectory('themes');
     staticFiles.jailRoot = false;
     staticFiles.allowDirectoryListing = true;
