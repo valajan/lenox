@@ -12,7 +12,6 @@
 
 import 'dart:io';
 import 'package:http_server/http_server.dart';
-import 'package:markdown/markdown.dart';
 import 'src/autoloader.dart';
 // import 'src/build.dart';
 
@@ -120,10 +119,8 @@ class Router {
       } else if (File(myStaticFile).existsSync()) {
         builder.buildStaticFile(myStaticFile, request, staticFiles);
       } else {
-        await File('views/404.md').readAsString().then((contents) {
-          convertor = markdownToHtml(contents,
-              inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
-              extensionSet: ExtensionSet.gitHubWeb);
+        await File('views/404.md').readAsString().then((contents) async {
+          convertor = await CompileBulma().main(contents);
         });
         builder.buildPage('views/404.md', request, convertor);
       }
