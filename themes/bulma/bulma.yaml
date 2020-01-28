@@ -1,4 +1,4 @@
-data:
+class:
   h1: title is-1
   h2: subtitle is-2
   h3: subtitle is-3

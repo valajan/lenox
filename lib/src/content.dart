@@ -34,7 +34,7 @@ class LenoxContent {
     author = config.getString('author');
     language = config.getString('language');
     theme = config.getString('theme');
-    all = config.get('data');
+    all = config.get('class');
   }
 
   String getTitle() {
