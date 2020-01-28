@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:lenox/src/autoloader.dart';
-import 'package:markdown/markdown.dart';
 import 'package:mustache/mustache.dart';
+import 'package:lenox/src/compile_bulma.dart';
 
 class CompileMdToHtml {
   String title;
@@ -38,11 +38,9 @@ class CompileMdToHtml {
     Directory('views').list().listen((FileSystemEntity contents) {
       var safeName =
           contents.uri.path.replaceAll('views/', '').replaceAll('.md', '');
-      File('${contents.path}').readAsString().then((String contents) {
-        var convertor = markdownToHtml(contents,
-            inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
-            extensionSet: ExtensionSet.gitHubWeb).replaceAll('#button', '<button>').replaceAll('button#', '</button>');
-        File('themes/$theme/layout.html').readAsString().then((String layout) {
+      File('${contents.path}').readAsString().then((String contents) async {
+        var convertor = await CompileBulma().main(contents);
+        await File('themes/$theme/layout.html').readAsString().then((String layout) {
           // var layoutFile =
           //     layout.toString().replaceAll('{{ body }}', convertor);
           var source = layout;

@@ -5,3 +5,4 @@ export 'build_request.dart';
 export 'content.dart';
 export 'static_directory.dart';
 export 'prebuild.dart';
+export 'compile_bulma.dart';

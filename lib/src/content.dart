@@ -19,6 +19,8 @@ class LenoxContent {
   
   String config;
 
+  var all;
+
   String setConfig(myConfig) {
     return config = myConfig;
   }
@@ -32,6 +34,7 @@ class LenoxContent {
     author = config.getString('author');
     language = config.getString('language');
     theme = config.getString('theme');
+    all = config.get('data');
   }
 
   String getTitle() {
@@ -60,5 +63,9 @@ class LenoxContent {
 
   String getTheme() {
     return theme;
+  }
+
+  Map getAll() {
+    return all;
   }
 }

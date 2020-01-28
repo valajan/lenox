@@ -113,10 +113,8 @@ class Router {
       myFile = '${myView.uri}/$safeStaticFile.md';
 
       if (File('$myFile').existsSync()) {
-        await File('$myFile').readAsString().then((contents) {
-          convertor = markdownToHtml(contents,
-              inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()],
-              extensionSet: ExtensionSet.gitHubWeb).replaceAll('#button', '<button>').replaceAll('button#', '</button>');
+        await File('$myFile').readAsString().then((contents) async {
+          convertor = await CompileBulma().main(contents);
         });
         builder.buildPage(myFile, request, convertor);
       } else if (File(myStaticFile).existsSync()) {
