@@ -10,11 +10,10 @@ class CompileCss {
     await config.getter();
     theme = config.getTheme();
     Directory('themes/$theme/css/').list().listen((FileSystemEntity contents) {
+      print(contents);
       cssSafe = contents.path.replaceAll('themes/$theme/css/', '');
-      File(contents.path).readAsString().then((String cssContents) {
-        File('build/css/$cssSafe').writeAsString(cssContents);
-        print('Build done ! Check the build folder');
-      });
+      File(contents.path).copy('build/css/$cssSafe');
     });
+    print('Build done ! Check the build folder');
   }
 }
