@@ -65,9 +65,6 @@ class Router {
   /// Markdown to html result
   String convertor;
 
-  /// Final html result
-  String layoutFinal;
-
   /// Static file route
   String myStaticFile;
 
