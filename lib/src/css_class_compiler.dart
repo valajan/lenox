@@ -1,9 +1,9 @@
 import 'package:lenox/src/autoloader.dart';
 import 'package:markdown/markdown.dart';
 
-class CompileBulma {
+class CssClassCompiler {
   var config = LenoxContent();
-  dynamic main(markdown) async {
+  dynamic compile(markdown) async {
     config.setConfig('themes/bulma/bulma.yaml');
     await config.getter();
     var data = config.getAll();

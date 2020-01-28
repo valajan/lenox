@@ -82,6 +82,8 @@ class Router {
   /// Theme configuration
   LenoxContent config = LenoxContent();
 
+  CssClassCompiler compiler = CssClassCompiler();
+
   /// Entry function
   Future<void> router({bool logger}) async {
     config.setConfig('config/config.yaml');
@@ -113,14 +115,14 @@ class Router {
 
       if (File('$myFile').existsSync()) {
         await File('$myFile').readAsString().then((contents) async {
-          convertor = await CompileBulma().main(contents);
+          convertor = await compiler.compile(contents);
         });
         builder.buildPage(myFile, request, convertor);
       } else if (File(myStaticFile).existsSync()) {
         builder.buildStaticFile(myStaticFile, request, staticFiles);
       } else {
         await File('views/404.md').readAsString().then((contents) async {
-          convertor = await CompileBulma().main(contents);
+          convertor = await compiler.compile(contents);
         });
         builder.buildPage('views/404.md', request, convertor);
       }

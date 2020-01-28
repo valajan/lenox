@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:lenox/src/autoloader.dart';
 import 'package:mustache/mustache.dart';
-import 'package:lenox/src/compile_bulma.dart';
+import 'package:lenox/src/css_class_compiler.dart';
 
 class CompileMdToHtml {
   String title;
@@ -20,7 +20,9 @@ class CompileMdToHtml {
 
   Template template;
 
-  var config = LenoxContent();
+  LenoxContent config = LenoxContent();
+
+  CssClassCompiler compiler = CssClassCompiler();
 
   void configContent() async {
     config.setConfig('config/config.yaml');
@@ -39,7 +41,7 @@ class CompileMdToHtml {
       var safeName =
           contents.uri.path.replaceAll('views/', '').replaceAll('.md', '');
       File('${contents.path}').readAsString().then((String contents) async {
-        var convertor = await CompileBulma().main(contents);
+        var convertor = await compiler.compile(contents);
         await File('themes/$theme/layout.html').readAsString().then((String layout) {
           var source = layout;
           template = Template(source, name: 'themes/$theme/layout.html');
