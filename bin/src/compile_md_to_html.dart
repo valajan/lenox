@@ -41,8 +41,6 @@ class CompileMdToHtml {
       File('${contents.path}').readAsString().then((String contents) async {
         var convertor = await CompileBulma().main(contents);
         await File('themes/$theme/layout.html').readAsString().then((String layout) {
-          // var layoutFile =
-          //     layout.toString().replaceAll('{{ body }}', convertor);
           var source = layout;
           template = Template(source, name: 'themes/$theme/layout.html');
           var output = template.renderString({
@@ -54,7 +52,6 @@ class CompileMdToHtml {
             'title': title
           });
           File('build/$safeName.html').writeAsString(output);
-          // File('build/$safeName.html').writeAsString(layoutFile);
         });
       });
     });
