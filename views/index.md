@@ -1,3 +1,10 @@
+---
+title: Hello, world!
+author: Valajan
+description: My super website
+keywords: html,css,js,dart
+---
+
 # Website launch
 
 ## it's now ready to use, enjoy!

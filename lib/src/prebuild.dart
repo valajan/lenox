@@ -16,7 +16,7 @@ class Prebuild {
         print('Compile dart files');
         run('dart2js ${contents.uri.path} -O2 -o themes/$theme/js/$safeName.js',
             [''],
-            verbose: true);
+            verbose: false);
       }
     });
   }

@@ -4,6 +4,7 @@ import 'package:http_server/http_server.dart';
 import 'package:mime_type/mime_type.dart';
 import 'package:mustache/mustache.dart';
 import 'package:pedantic/pedantic.dart';
+import 'package:front_matter/front_matter.dart' as fm;
 
 class BuildRequest {
 
@@ -45,6 +46,15 @@ class BuildRequest {
 
   void buildPage(String fileName, HttpRequest request, String layout) async {
     await configContent();
+    var file = File(fileName);
+    var fileContent = await file.readAsString();
+    var doc = fm.parse(fileContent);
+    if (doc.data != null) {
+      if (doc.data['title'] != null) title = doc.data['title'];
+      if (doc.data['subtitle'] != null) subtitle = doc.data['subtitle'];
+      if (doc.data['description'] != null) description = doc.data['description'];
+      if (doc.data['keywords'] != null) keywords = doc.data['keywords'];
+    }
     await File('themes/$theme/layout.html').readAsString().then((contents) {
       source = contents;
     });

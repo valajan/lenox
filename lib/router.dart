@@ -13,6 +13,7 @@
 import 'dart:io';
 import 'package:http_server/http_server.dart';
 import 'src/autoloader.dart';
+import 'package:front_matter/front_matter.dart' as fm;
 // import 'src/build.dart';
 
 /// Main class of the app
@@ -114,16 +115,25 @@ class Router {
       myFile = '${myView.uri}/$safeStaticFile.md';
 
       if (File('$myFile').existsSync()) {
-        await File('$myFile').readAsString().then((contents) async {
-          convertor = await compiler.compile(contents);
-        });
+        var fileContents = await File('$myFile').readAsString();
+        var doc = fm.parse(fileContents);
+        if (doc.content != null) {
+          convertor = await compiler.compile(doc.content, theme);
+        }
+        else {
+          convertor = await compiler.compile(doc.toString(), theme);
+        }
         builder.buildPage(myFile, request, convertor);
       } else if (File(myStaticFile).existsSync()) {
         builder.buildStaticFile(myStaticFile, request, staticFiles);
       } else {
-        await File('views/404.md').readAsString().then((contents) async {
-          convertor = await compiler.compile(contents);
-        });
+        var fileContents = await File('views/404.md').readAsString();
+        var doc = fm.parse(fileContents);
+        if (doc.content != null) {
+          convertor = await compiler.compile(doc.content, theme);
+        } else {
+          convertor = await compiler.compile(doc.toString(), theme);
+        }
         builder.buildPage('views/404.md', request, convertor);
       }
     });
