@@ -68,7 +68,7 @@ class BuildRequest {
       'title': title
     });
     var response = request.response;
-    var mimeType = 'text/html';
+    var mimeType = 'text/html; charset=UTF-8';
     response.headers.set('Content-Type', mimeType);
     response.write(output);
     unawaited(response.close());
