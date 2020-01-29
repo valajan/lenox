@@ -14,5 +14,6 @@ analysis_options.yaml
 doc/
 themes/bulma/js/*
 !themes/bulma/js/main.dart
+!themes/bulma/js/main.js
 themes/blank/js/*
 themes/blank/js/main.dart
