@@ -21,9 +21,9 @@ class Router {
   /// Router constructor
   Router({this.myView, this.errorPage, this.myPort}) {
     print('Thanks for using lenox static site gen!');
-    myView == null ? myView = Directory('views') : myView = myView;
+    myView == null ? myView = Directory('pages') : myView = myView;
     errorPage == null
-        ? errorPage = File('views/404.md')
+        ? errorPage = File('pages/404.md')
         : errorPage = errorPage;
     myPort == null ? myPort = 3000 : myPort = myPort;
     myConfig == null ? myConfig = routeConfig : myConfig = myConfig;
@@ -124,14 +124,14 @@ class Router {
       } else if (File(myStaticFile).existsSync()) {
         builder.buildStaticFile(myStaticFile, request, staticFiles);
       } else {
-        var fileContents = await File('views/404.md').readAsString();
+        var fileContents = await File('pages/404.md').readAsString();
         var doc = fm.parse(fileContents);
         if (doc.content != null) {
           convertor = await compiler.compile(doc.content, theme);
         } else {
           convertor = await compiler.compile(doc.toString(), theme);
         }
-        builder.buildPage('views/404.md', request, convertor);
+        builder.buildPage('pages/404.md', request, convertor);
       }
     });
   }

@@ -45,7 +45,7 @@ class CompileMdToHtml {
 
   void main() async {
     await configContent();
-    Directory('views').list().listen((FileSystemEntity contents) async {
+    Directory('pages').list().listen((FileSystemEntity contents) async {
       var file = File(contents.uri.path);
       var fileContent = await file.readAsString();
       var doc = fm.parse(fileContent);
@@ -75,7 +75,7 @@ class CompileMdToHtml {
         'title': title
       });
       var safeName =
-          contents.uri.path.replaceAll('views/', '').replaceAll('.md', '');
+          contents.uri.path.replaceAll('pages/', '').replaceAll('.md', '');
       File('build/$safeName.html').writeAsStringSync(output);
     });
   }
