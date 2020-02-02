@@ -4,7 +4,6 @@ pubspec.lock
 /build
 bin/*
 !bin/build.dart
-!bin/src/
 pages/*
 !pages/index.md
 !pages/404.md

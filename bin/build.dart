@@ -1,8 +1,8 @@
-import 'src/compile_assets.dart';
-import 'src/compile_css.dart';
-import 'src/create_directory.dart';
-import 'src/compile_dart_to_js.dart';
-import 'src/compile_md_to_html.dart';
+import 'package:lenox/build/compile_assets.dart';
+import 'package:lenox/build/compile_css.dart';
+import 'package:lenox/build/create_directory.dart';
+import 'package:lenox/build/compile_dart_to_js.dart';
+import 'package:lenox/build/compile_md_to_html.dart';
 import 'package:args/args.dart';
 
 void main(List<String> arguments) async {
