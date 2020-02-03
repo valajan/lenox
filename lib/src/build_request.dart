@@ -81,13 +81,13 @@ class BuildRequest {
     var mimeType = mime(fileName);
     mimeType ??= 'text/plain; charset=UTF-8';
     response.headers.set('Content-Type', mimeType);
-    if (mimeType != 'image/png' && mimeType != 'image/jpeg' && mimeType != 'image/x-icon' && mimeType != 'image/gif') {
-      await file.readAsString().then((contents) {
+    if (mimeType.contains('image/') || mimeType.contains('video/')) {
+      dir.serveFile(file, request);
+    } else {
+        await file.readAsString().then((contents) {
         response.write(contents);
         response.close();
       });
-    } else {
-      dir.serveFile(file, request);
     }
   }
 }
