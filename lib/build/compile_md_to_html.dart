@@ -27,8 +27,6 @@ class CompileMdToHtml {
 
   Template template;
 
-  String output;
-
   String convertor;
 
   void configContent() async {
@@ -66,7 +64,7 @@ class CompileMdToHtml {
         if (doc.data['keywords'] != null) keywords = doc.data['keywords'];
       }
       template = Template(source, name: 'themes/$theme/layout.html');
-      output = template.renderString({
+      var output = template.renderString({
         'author': author,
         'body': convertor,
         'description': description,
@@ -76,7 +74,12 @@ class CompileMdToHtml {
       });
       var safeName =
           contents.uri.path.replaceAll('pages/', '').replaceAll('.md', '');
-      File('build/$safeName.html').writeAsStringSync(output);
+      if (safeName == 'index') {
+        File('build/$safeName.html').writeAsStringSync(output);
+      } else {
+        await Directory('build/$safeName').create();
+        File('build/$safeName/index.html').writeAsStringSync(output);
+      }
     });
   }
 }
