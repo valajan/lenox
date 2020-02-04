@@ -6,7 +6,7 @@ class CompileCss {
   String theme;
   LenoxContent config = LenoxContent();
   void main() async {
-    config.setConfig('config/config.yaml');
+    config.setConfig('config.yaml');
     await config.getter();
     theme = config.getTheme();
     Directory('themes/$theme/css/').list().listen((FileSystemEntity contents) {

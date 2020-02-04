@@ -6,7 +6,7 @@ class CompileAssets {
   String theme;
   LenoxContent config = LenoxContent();
   void main() async {
-    config.setConfig('config/config.yaml');
+    config.setConfig('config.yaml');
     await config.getter();
     theme = config.getTheme();
     Directory('themes/$theme/assets/').list().listen((FileSystemEntity contents) {

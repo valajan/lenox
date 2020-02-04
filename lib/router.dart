@@ -84,7 +84,7 @@ class Router {
 
   /// Entry function
   Future<void> router({bool logger}) async {
-    config.setConfig('config/config.yaml');
+    config.setConfig('config.yaml');
     await config.getter();
     theme = config.getTheme();
     staticFiles = StaticDirectory().getStaticDirectory();

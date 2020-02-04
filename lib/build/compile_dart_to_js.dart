@@ -7,7 +7,7 @@ class CompileDartToJs {
   LenoxContent config = LenoxContent();
   void main(verbose) async {
     if (verbose) {
-      config.setConfig('config/config.yaml');
+      config.setConfig('config.yaml');
       await config.getter();
       theme = config.getTheme();
       Directory('themes/$theme/js').list().listen((FileSystemEntity contents) {

@@ -33,7 +33,7 @@ class BuildRequest {
   var config = LenoxContent();
 
   void configContent() async {
-    config.setConfig('config/config.yaml');
+    config.setConfig('config.yaml');
     await config.getter();
     title = config.getTitle();
     author = config.getAuthor();

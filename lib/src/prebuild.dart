@@ -5,7 +5,7 @@ import 'package:process_run/cmd_run.dart';
 class Prebuild {
   void main() async {
     var config = LenoxContent();
-    config.setConfig('config/config.yaml');
+    config.setConfig('config.yaml');
     await config.getter();
     var theme = config.getTheme();
     Directory('themes/$theme/js').list().listen((FileSystemEntity contents) {

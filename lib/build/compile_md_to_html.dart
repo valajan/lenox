@@ -30,7 +30,7 @@ class CompileMdToHtml {
   String convertor;
 
   void configContent() async {
-    config.setConfig('config/config.yaml');
+    config.setConfig('config.yaml');
     await config.getter();
     author = config.getAuthor();
     title = config.getTitle();
