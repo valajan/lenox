@@ -1,5 +1,5 @@
-import 'package:lenox/router.dart';
 import 'package:args/command_runner.dart';
+import 'package:lenox/src/autoloader.dart';
 
 class StartCommand extends Command {
   @override
@@ -14,8 +14,10 @@ class StartCommand extends Command {
   }
 
   @override
-  void run() {
-    Router()
+  void run() async {
+    await Prebuild().main();
+
+    await Router()
       .router(logger: false);
   }
 }
