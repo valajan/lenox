@@ -15,9 +15,9 @@ class CompileCss {
           .listen((FileSystemEntity contents) {
         print(contents);
         cssSafe = contents.path.replaceAll('themes/$theme/css/', '');
-        File(contents.path).copy('build/css/$cssSafe');
+        File(contents.path).copy('public/css/$cssSafe');
       });
     }
-    print('Build done ! Check the build folder');
+    print('Build done ! Check the public folder');
   }
 }

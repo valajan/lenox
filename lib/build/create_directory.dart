@@ -2,28 +2,28 @@ import 'dart:io';
 
 class CreateDirectory {
   void main() {
-    Directory('build').exists().then((bool result) {
+    Directory('public').exists().then((bool result) {
       if (result == false) {
-        print('Create the build directory');
-        Directory('build').create();
+        print('Create the public directory');
+        Directory('public').create();
       }
     });
-    Directory('build/css').exists().then((bool result) {
+    Directory('public/css').exists().then((bool result) {
       if (result == false) {
-        print('Create the build/css directory');
-        Directory('build/css').create();
+        print('Create the public/css directory');
+        Directory('public/css').create();
       }
     });
-    Directory('build/js').exists().then((bool result) {
+    Directory('public/js').exists().then((bool result) {
       if (result == false) {
-        print('Create the build/js directory');
-        Directory('build/js').create();
+        print('Create the public/js directory');
+        Directory('public/js').create();
       }
     });
-    Directory('build/assets').exists().then((bool result) {
+    Directory('public/assets').exists().then((bool result) {
       if (result == false) {
-        print('Create the build/assets directory');
-        Directory('build/assets').create();
+        print('Create the public/assets directory');
+        Directory('public/assets').create();
       }
     });
   }

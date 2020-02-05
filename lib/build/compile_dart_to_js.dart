@@ -18,9 +18,9 @@ class CompileDartToJs {
               .replaceAll('themes/$theme/js/', '')
               .replaceAll('.dart', '');
           if (safeName.contains('.js') != true) {
-            Directory('build/js/').create();
+            Directory('public/js/').create();
             print('Compile dart file to js');
-            run('dart2js ${contents.uri.path} -O2 -o build/js/$safeName.js',
+            run('dart2js ${contents.uri.path} -O2 -o public/js/$safeName.js',
                 [''],
                 verbose: true);
           }

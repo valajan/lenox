@@ -75,10 +75,10 @@ class CompileMdToHtml {
       var safeName =
           contents.uri.path.replaceAll('pages/', '').replaceAll('.md', '');
       if (safeName == 'index') {
-        File('build/$safeName.html').writeAsStringSync(output);
+        File('public/$safeName.html').writeAsStringSync(output);
       } else {
-        await Directory('build/$safeName').create();
-        File('build/$safeName/index.html').writeAsStringSync(output);
+        await Directory('public/$safeName').create();
+        File('public/$safeName/index.html').writeAsStringSync(output);
       }
     });
   }

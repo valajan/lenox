@@ -15,7 +15,7 @@ class CompileAssets {
           .listen((FileSystemEntity contents) {
         print(contents);
         assetSafe = contents.path.replaceAll('themes/$theme/assets/', '');
-        File(contents.path).copy('build/assets/$assetSafe');
+        File(contents.path).copy('public/assets/$assetSafe');
       });
     }
   }
