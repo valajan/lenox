@@ -10,15 +10,22 @@ class CompileDartToJs {
       config.setConfig('config.yaml');
       await config.getter();
       theme = config.getTheme();
-      Directory('themes/$theme/js').list().listen((FileSystemEntity contents) {
-        var safeName =
-            contents.uri.path.replaceAll('themes/$theme/js/', '').replaceAll('.dart', '');
-        if (safeName.contains('.js') != true) {
-          Directory('build/js/').create();
-          print('Compile dart file to js');
-          run('dart2js ${contents.uri.path} -O2 -o build/js/$safeName.js', [''], verbose: true);
-        }
-      });
+      if (Directory('themes/$theme/js').existsSync()) {
+        Directory('themes/$theme/js')
+            .list()
+            .listen((FileSystemEntity contents) {
+          var safeName = contents.uri.path
+              .replaceAll('themes/$theme/js/', '')
+              .replaceAll('.dart', '');
+          if (safeName.contains('.js') != true) {
+            Directory('build/js/').create();
+            print('Compile dart file to js');
+            run('dart2js ${contents.uri.path} -O2 -o build/js/$safeName.js',
+                [''],
+                verbose: true);
+          }
+        });
+      }
     }
   }
 }
