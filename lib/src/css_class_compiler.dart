@@ -10,17 +10,13 @@ class CssClassCompiler {
       await config.getter();
       var data = config.getAll();
       var convertor = await markdownToHtml(markdown,
-              inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()])
-          .replaceAll('#button', '<button>')
-          .replaceAll('button#', '</button>');
+              inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()]);
       await data.forEach((key, value) =>
           convertor = convertor.replaceAll('<$key>', '<$key class="$value">'));
       return convertor;
     } else {
       var convertor = await markdownToHtml(markdown,
-              inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()])
-          .replaceAll('#button', '<button>')
-          .replaceAll('button#', '</button>');
+              inlineSyntaxes: <InlineHtmlSyntax>[InlineHtmlSyntax()]);
       return convertor;
     }
   }

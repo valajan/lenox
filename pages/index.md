@@ -35,12 +35,10 @@ print 'Hi my name is ' + name
 ```
 
 <div style="margin-top: 25px;">
-    <a href="https://github.com/valajan/lenox/">
-        #button
-            <span class="icon">
-                <i class="fab fa-github"></i>
-            </span>
-            <span>GitHub</span>
-        button#
-    </a>
+    <button class="button is-light is-link" onclick="window.location.href='https://github.com/valajan/lenox/'">
+        <span class="icon">
+            <i class="fab fa-github"></i>
+        </span>
+        <span>GitHub</span>
+    </button>
 </div>
