@@ -22,7 +22,7 @@ keywords: html,css,js,dart
 - Nulla facilisi. Mauris eleifend felis a purus pretium egestas
 
 <div style="margin-top: 15px;">
-    <a href="/lenox.html">#button Read more... button#</a>
+    <a href="/lenox" class="button is-light is-link">Read more...</a>
 </div>
 
 ---
@@ -35,7 +35,7 @@ print 'Hi my name is ' + name
 ```
 
 <div style="margin-top: 25px;">
-    <button class="button is-light is-link" onclick="window.location.href='https://github.com/valajan/lenox/'">
+    <button class="button is-light is-link" onclick="window.open('https://github.com/valajan/lenox', '_blank')">
         <span class="icon">
             <i class="fab fa-github"></i>
         </span>
