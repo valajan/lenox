@@ -5,20 +5,17 @@ A simple static site generator written in [Dart](https://dart.dev/)
 
 **Install dependencies**
 ```
-git clone https://github.com/valajan/lenox.git
-cd lenox
-pub get
+pub global activate --source git https://github.com/valajan/lenox.git
 ```
 
 **Start Lenox**
 ```
-dart main.dart
+lenox start
 ```
-The *main.dart* file is the entry file of Lenox  
 
 **Generate static files**
 ```
-pub run build.dart
+lenox build
 ```
 
 **Launch webdev server**
