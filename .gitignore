@@ -3,7 +3,7 @@ pubspec.lock
 /.dart_tool
 /build
 bin/*
-!bin/build.dart
+!bin/lenox.dart
 pages/*
 !pages/index.md
 !pages/404.md
