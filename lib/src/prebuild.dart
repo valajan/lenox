@@ -8,16 +8,20 @@ class Prebuild {
     config.setConfig('config.yaml');
     await config.getter();
     var theme = config.getTheme();
-    Directory('themes/$theme/js').list().listen((FileSystemEntity contents) {
-      var safeName = contents.uri.path
-          .replaceAll('themes/$theme/js', '')
-          .replaceAll('.dart', '');
-      if (safeName.contains('.js') != true) {
-        print('Compile dart files');
-        run('dart2js ${contents.uri.path} -O2 -o themes/$theme/js/$safeName.js',
-            [''],
-            verbose: false);
-      }
-    });
+    if (Directory('themes/$theme/js').existsSync()) {
+      Directory('themes/$theme/js').list().listen((FileSystemEntity contents) {
+        var safeName = contents.uri.path
+            .replaceAll('themes/$theme/js', '')
+            .replaceAll('.dart', '');
+        if (safeName.contains('.js') != true) {
+          print('Compile dart files');
+          run('dart2js ${contents.uri.path} -O2 -o themes/$theme/js/$safeName.js',
+              [''],
+              verbose: false);
+        }
+      });
+    } else {
+      print('! No js folder');
+    }
   }
 }
