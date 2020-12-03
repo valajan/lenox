@@ -8,8 +8,14 @@ A simple static site generator written in [Dart](https://dart.dev/)
 pub global activate --source git https://github.com/valajan/lenox.git
 ```
 
+**Init Lenox example project**
+```
+lenox init
+```
+
 **Start Lenox**
 ```
+cd lenox_content
 lenox start
 ```
 
