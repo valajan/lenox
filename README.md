@@ -27,7 +27,7 @@ lenox build
 **Launch webdev server**
 
 ```
-webdev serve build
+webdev serve public
 ```
 [Webdev](https://pub.dev/packages/webdev) package can only works if the build.yaml file is present.  
 You can configure it with your own desire !  

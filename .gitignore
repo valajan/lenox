@@ -2,6 +2,7 @@ pubspec.lock
 /.packages
 /.dart_tool
 /build
+/public
 bin/*
 !bin/lenox.dart
 .DS_Store
