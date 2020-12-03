@@ -1,6 +1,0 @@
-class:
-  h1: title is-1
-  h2: subtitle is-2
-  h3: subtitle is-3
-  button: button is-light is-link
-  span author: tag is-link

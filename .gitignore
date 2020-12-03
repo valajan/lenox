@@ -4,15 +4,9 @@ pubspec.lock
 /build
 bin/*
 !bin/lenox.dart
-pages/*
-!pages/index.md
-!pages/404.md
 .DS_Store
 doc/api
 analysis_options.yaml
 doc/
-themes/bulma/js/*
-!themes/bulma/js/main.dart
-!themes/bulma/js/main.js
-themes/blank/js/*
-themes/blank/js/main.dart
+themes/
+pages/
