@@ -6,3 +6,4 @@ export 'content.dart';
 export 'static_directory.dart';
 export 'prebuild.dart';
 export 'css_class_compiler.dart';
+export 'init.dart';
